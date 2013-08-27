@@ -1,28 +1,38 @@
 <!doctype html>
-<html>
-<head>
-	<title>First Giving Donation API</title>
-	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="js/application.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="css/application.css"/>
-</head>
-<body>
-	<div id="splash-page" class="container">
-		<div id="header">
+<html lang="en">
+	<head>
+		<title>First Giving Donation API</title>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="js/application.js"></script>
+		<script type="text/javascript" src="js/stats.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/application.css"/>
+	</head>
+	<body>
+		<div id="splash-page" class="container">
+			<div id="header">
 
-		</div>
-		<div id="nav">
+			</div>
+			<div id="nav">
 
-		</div>
-		<div id="content">
-			<p/>http://developers.firstgiving.com/documentation/donations-api/
-			<iframe src="https://donatenowstaging.firstgiving.com/secure/payment/03d1c5e4-2024-11e0-a279-4061860da51d?amount=15&country=US&first_name=Bob&last_name=Dole&affiliate_id=EXAMPLE_PARTNER&_pb_success=aHR0cDovL3d3dy5maXJzd"></iframe>
+			</div>
+			<div id="content">
+	<!-- 			<p/>http://developers.firstgiving.com/documentation/donations-api/
+				<iframe src="https://donatenowstaging.firstgiving.com/secure/payment/03d1c5e4-2024-11e0-a279-4061860da51d?amount=15&country=US&first_name=Bob&last_name=Dole&affiliate_id=EXAMPLE_PARTNER&_pb_success=aHR0cDovL3d3dy5maXJzd"></iframe> -->
 
+				<h1>Hello + response.name + , Set-up your annual Goal!</h1>
+				<form>
+					<p/> This dough...
+					Amount (between 0 and infinity): <input type="number" name="money" min=".01">
+					<p/> By this date....
+					Due (date and time): <input type="datetime" name="due">
+					<input[type="button"] id="findevents">
+					<button><a href="events.html">Pledge and go find Events!</a></button>
+				</form>
+				<canvas id="piechart" width="400" height="400">Piechart</canvas>
+			</div>
+			<div id="footer">
+			</div>
 		</div>
-		<div id="footer">
-
-		</div>
-	</div>
-</body>
+	</body>
 </html>

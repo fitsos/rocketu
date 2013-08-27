@@ -61,7 +61,7 @@ $(document).ready(function() {
 	
 	$('#getjsonajax').on('click',function() {
 		$.ajax({
-			url: 'data/me.json',
+			url: 'http://proxy-rocketu.rhcloud.com/rocketu-api/data/me.json',
 			dataType: 'json',
 			success: function(data) {
 				console.log(data);
@@ -85,7 +85,7 @@ $(document).ready(function() {
 	$('#getmovie').on('click',function() {
 		console.log('Getting movie');
 		$.ajax({
-			url: 'data/movie.json',
+			url: 'http://proxy-rocketu.rhcloud.com/rocketu-api/data/movie.json',
 			dataType: 'json',
 			success: function(data) {
 				console.log(data);
@@ -101,7 +101,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	$('#testGet').on('click',function() {
+	$('#testget').on('click',function() {
 		$.ajax({
 			url: 'http://bootcamp-rocketu.rhcloud.com/api?submit=Submit&firstname=Kevin&lastname=Lee',
 			type: 'GET',
@@ -123,8 +123,27 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
-	$('#testPost').on('click',function() {
-		
+
+	$('#testpost').on('click',function() {
+		$.ajax({
+			url: 'http://bootcamp-rocketu.rhcloud.com/api?submit=Submit&firstname=Kevin&lastname=Lee',
+			type: 'POST',
+			dataType: 'json',
+			success: function(json) {
+				// MOST IMPORTANT LINE if you are uncertain about what's coming back from the API
+				console.log(json); 
+				
+				// DISPLAY THE DATA in the browser
+				for(var k in json.data) {
+					// OPTION 1
+					$('body').append('<p>' + k + '=' + json.data[k] + '</p>');
+					// OPTION 2
+					$('body').append($('<li/>').html(k + '=' + json.data[k]));
+				}
+			},
+			complete: function(jqXHR,statusCode) {
+				console.log(statusCode);
+			}
+		});
 	});
 });

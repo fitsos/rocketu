@@ -1,3 +1,7 @@
+$.(document).ready(function {
+	console.log('google.js ready!');
+	google.maps.event.addDomListener(window, 'load', getDynamicMap); 
+});
 /*
 	Goal: Display a map of your current location
 	Logic:
@@ -46,26 +50,25 @@ function getDynamicMap(position) {
 	    zoom: 13,
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	map = new google.maps.Map(
-	    document.getElementById("dynamic-map"),
-	    mapOptions
-	);
-}
-google.maps.event.addDomListener(window, 'load', getDynamicMap); // $(window).on('load',getDynamicMap); 
-
-function addDynamicMarker(latlng,content) {
-	var infowindow = new google.maps.InfoWindow({
-		content: content
-	});
-
 	var marker = new google.maps.Marker({
 		position: latlng,
 		map: map,
 		title: content
 	});
-	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map,marker);
-	});	
+	map = new google.maps.Map(
+	    document.getElementById("dynamic-map"),
+	    mapOptions
+	);
+}
+// google.maps.event.addDomListener(window, 'load', getDynamicMap); // $(window).on('load',getDynamicMap); 
+
+function addDynamicMarker(latlng,content) {
+	var infowindow = new google.maps.InfoWindow({
+		content: content
+	});
+	// google.maps.event.addListener(marker, 'click', function() {
+	// 	infowindow.open(map,marker);
+	// });	
 }
 
 /* STATIC */
@@ -102,6 +105,10 @@ function drawStaticMap(url) {
 	var map = document.getElementById('static-map');
 	map.innerHTML = '<img src="' + url + '"/>';
 }
+// function drawDynamicMap(url) {
+// 	var map = document.getElementById('dynamic-map');
+// 	map.innerHTML = ;
+// }
 function errorHandler() {
 	console.log('Error');
 }
