@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block bodyclasss %}dashboard{% endblock %}
+
+{% block breadcrumbs %}<a href="/admin">Home</a> &gt;{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <h1>Latest Poll Results </h1>
+    <h2>{{ latest.title }}</h2>
+    {% for choice in latest.question.all %}
+        <p>{{ choice.votes }} - {{ choice.title }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
+

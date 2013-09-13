@@ -8,14 +8,21 @@
 	</head>
 	<body>
 		<h2>Cafe Data from API:</h2>
+		<ul id="here"></ul>
 <script id="bar-template" type="text/template">
-	{{#.}}
-			<ul id="here"></ul>
-				<li id="bar-template">
+			{{#.}}
+				<li>
+					<img src={{icon}}>
 					{{name}}
+					{{vicinity}}
+					rating: {{rating}}
+					price level: {{price_level}}
+					{{#types}}
+						{{.}}
+					{{/types}}
 				</li>
 
-	{{/.}}
+			{{/.}}
 </script>
 		<div></div>
 	</body>

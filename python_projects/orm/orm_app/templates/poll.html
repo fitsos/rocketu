@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+</head>
+<body>
+    {{ poll.question }}
+    <ul>
+    {% for answer in poll.answers.all %}
+        <li>{{ answer.answer }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

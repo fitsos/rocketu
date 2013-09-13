@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>This is money.html template</title>
+</head>
+<body>
+	<h1>Loaded the page</h1>
+    <form method="POST">
+    {{ money }}
+    <input type="submit">
+
+	{% load cache %}
+    {% cache 600 money %}
+        <p/> This is b/w load and endcache
+	{% endcache %}
+</body>
+</html>
